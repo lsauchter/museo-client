@@ -1,7 +1,7 @@
 import React from 'react'
-import '/NavBar.css'
+import '/MapPage.css'
 
-export default function NavBar() {
+export default function MapPage() {
     return(
         <>
         </>
