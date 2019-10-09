@@ -1,20 +1,20 @@
 .hero {
-    background-color: #F2FDFF;
-}
-
-.heroCenter {
-    margin: 15% 0;
+    margin: 15vh 0;
 }
 
 .container {
     padding: 5%;
 }
 
-.one {
+.top {
     background-color: #101935;
     color: #F2FDFF;
 }
 
-.two {
+.bottom {
     background-color: #9AD4D6;
+}
+
+.bold {
+    font-weight: bold;
 }

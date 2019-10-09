@@ -1,0 +1,10 @@
+.searchContainer {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+}
+
+.searchContainer button {
+    color: gainsboro;
+    background-color: #820933;
+}

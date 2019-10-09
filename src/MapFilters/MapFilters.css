@@ -1,0 +1,18 @@
+.filters {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters li {
+    list-style: none;
+    padding: 5px;
+}
+
+.filters button {
+    cursor: pointer;
+    background-color: #101935;
+    color: #F2FDFF;
+    border: 1pt solid #F2FDFF;
+}
