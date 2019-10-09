@@ -1,5 +1,5 @@
 import React from 'react'
-import '/MapFilters.css'
+import './MapFilters.css'
 
 export default function MapFilters() {
     return(
