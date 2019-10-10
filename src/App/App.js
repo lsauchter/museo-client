@@ -1,12 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Route, Switch} from 'react-router-dom'
 import LandingPage from '../LandingPage/LandingPage'
 import MapPage from '../MapPage/MapPage'
 import NavBarLanding from '../NavBarLanding/NavBarLanding'
 import NavBarSearch from '../NavBarSearch/NavBarSearch'
+import MuseumContext from '../MuseumContext'
+import STORE from '../store'
 import './App.css'
 
 function App() {
+  const [museums, updateMuseums] = useState(STORE)
+
   function renderNavRoutes() {
     return (
     <Switch>
@@ -36,15 +40,21 @@ function App() {
     </Switch>
   )}
 
+  const MuseumContextValue = {
+    museums
+  }
+
   return (
-    <div className="App">
-      <header role="banner">
-        {renderNavRoutes()}
-      </header>
-      <main role="main">
-        {renderMainRoutes()}
-      </main>
-    </div>
+    <MuseumContext.provider value={MuseumContextValue}>
+      <div className="App">
+        <header role="banner">
+          {renderNavRoutes()}
+        </header>
+        <main role="main">
+          {renderMainRoutes()}
+        </main>
+      </div>
+    </MuseumContext.provider>
   );
 }
 
