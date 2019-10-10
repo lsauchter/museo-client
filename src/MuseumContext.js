@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MuseumContext = React.createContext({
-    museums: []
+    museums: [],
 })
 
 export default MuseumContext

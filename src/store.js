@@ -1,4 +1,5 @@
-export default STORE = [
+const STORE = {
+    museums: [
     {MID: 8403601669,
         COMMONNAME:	'BRONX ZOO',
         PHONE:	7183671010,
@@ -128,7 +129,7 @@ export default STORE = [
         LATITUDE: 40.73858,
         GSTREET: '17 W 17TH ST FL 9',
         GCITY: 'NEW YORK',
-        GSTREET: 'NY',
+        GSTATE: 'NY',
         GZIP5: '10011'
     },
     {MID: 8403602336,
@@ -140,7 +141,7 @@ export default STORE = [
         LATITUDE: 40.76713,
         GSTREET: '3237 VERNON BLVD',
         GCITY:	'LONG IS CITY',
-        GSTREET: 'NY',
+        GSTATE: 'NY',
         GZIP5:	'11106'
     },
     {MID: 8403600174,
@@ -287,4 +288,6 @@ export default STORE = [
         GSTATE:	'NY',
         GZIP5:	'10025'
     }
-]
+]}
+
+export default STORE
