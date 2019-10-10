@@ -9,7 +9,7 @@ import STORE from '../store'
 import './App.css'
 
 function App() {
-  const [museums, updateMuseums] = useState(STORE)
+  const [museums, updateMuseums] = useState(STORE.museums)
 
   function renderNavRoutes() {
     return (
@@ -41,11 +41,11 @@ function App() {
   )}
 
   const MuseumContextValue = {
-    museums
+    museums,
   }
 
   return (
-    <MuseumContext.provider value={MuseumContextValue}>
+    <MuseumContext.Provider value={MuseumContextValue}>
       <div className="App">
         <header role="banner">
           {renderNavRoutes()}
@@ -54,7 +54,7 @@ function App() {
           {renderMainRoutes()}
         </main>
       </div>
-    </MuseumContext.provider>
+    </MuseumContext.Provider>
   );
 }
 
