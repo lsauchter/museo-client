@@ -12,7 +12,7 @@ export default function Map() {
         <MapBox
             style="mapbox://styles/mapbox/streets-v9"
             containerStyle={{
-                height: '100vh',
+                height: '50vh',
                 width: '100vw'
             }}
             >
