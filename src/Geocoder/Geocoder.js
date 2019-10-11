@@ -1,3 +1,7 @@
+//This is an edited copy of this node module
+//https://github.com/kmwhelan93/react-geocoder-autocomplete
+//The version below includes the country query to limit results to one country
+
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import FlipMove from "react-flip-move";
