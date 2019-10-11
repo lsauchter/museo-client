@@ -1,7 +1,3 @@
-//File is an edited copy of this node module
-//https://github.com/kmwhelan93/react-geocoder-autocomplete
-//This version below includes the country query to limit results to one country
-
 import React, {useContext} from 'react'
 import MuseumContext from '../MuseumContext'
 import  Geocoder from '../Geocoder/Geocoder'
