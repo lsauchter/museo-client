@@ -10,6 +10,12 @@ import './App.css'
 
 function App() {
   const [museums, updateMuseums] = useState(STORE.museums)
+  const [viewport, updateViewport] = useState({longitude: -73.979963592639, latitude: 40.69785125988064, zoom: 0.2762671360498489})
+
+  function setViewport (response) {
+    const {longitude, latitude, zoom} = response
+    updateViewport({longitude, latitude, zoom})
+  }
 
   function renderNavRoutes() {
     return (
@@ -42,6 +48,8 @@ function App() {
 
   const MuseumContextValue = {
     museums,
+    viewport,
+    setViewport
   }
 
   return (
