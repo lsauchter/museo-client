@@ -1,17 +1,22 @@
 import React, {useContext} from 'react'
+import {withRouter} from 'react-router'
 import MuseumContext from '../MuseumContext'
 import  Geocoder from '../Geocoder/Geocoder'
 import './SearchForm.css'
 
-export default function SearchForm() {
-    const {viewport, setViewport} = useContext(MuseumContext)
+function SearchForm(props) {
+    const {dataBounds, setCenter} = useContext(MuseumContext)
     const mapAccess = {
         accessToken: process.env.REACT_APP_API_TOKEN
     }
 
     const onSelect = (res) => {
-        //setViewport(viewport)
         console.log(res)
+        if (props.activeLink === "true") {
+            props.history.push('/map')
+        }
+        dataBounds([[res.bbox[0],res.bbox[1]],[res.bbox[2],res.bbox[3]]])
+        setCenter(res.center)
     }
 
     return(
@@ -23,3 +28,5 @@ export default function SearchForm() {
         />
     )
 }
+
+export default withRouter(SearchForm)

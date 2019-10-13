@@ -5,16 +5,30 @@ import MapPage from '../MapPage/MapPage'
 import NavBarLanding from '../NavBarLanding/NavBarLanding'
 import NavBarSearch from '../NavBarSearch/NavBarSearch'
 import MuseumContext from '../MuseumContext'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faPallet, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark } from '@fortawesome/free-solid-svg-icons'
 import STORE from '../store'
 import './App.css'
 
 function App() {
   const [museums, updateMuseums] = useState(STORE.museums)
-  const [viewport, updateViewport] = useState({longitude: -73.979963592639, latitude: 40.69785125988064, zoom: 0.2762671360498489})
+  const [museumsVisible, updateMuseumsVisible] = useState([])
+  const [mapCenter, updateMapCenter] = useState()
 
-  function setViewport (response) {
-    const {longitude, latitude, zoom} = response
-    updateViewport({longitude, latitude, zoom})
+  library.add(faPallet, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark)
+
+  function dataBounds (response) {
+    const newMuseums = museums.filter(museum => {
+      return museum.LONGITUDE >= response[0][0] &&
+      museum.LONGITUDE <= response[1][0] &&
+      museum.LATITUDE >= response[0][1] &&
+      museum.LATITUDE <= response[1][1]
+    })
+    updateMuseumsVisible(newMuseums)
+  }
+
+  function setCenter(center) {
+    updateMapCenter(center)
   }
 
   function renderNavRoutes() {
@@ -48,8 +62,10 @@ function App() {
 
   const MuseumContextValue = {
     museums,
-    viewport,
-    setViewport
+    museumsVisible,
+    dataBounds,
+    mapCenter,
+    setCenter
   }
 
   return (

@@ -2,8 +2,10 @@ import React from 'react';
 
 const MuseumContext = React.createContext({
     museums: [],
-    viewport: {},
-    setViewport: () => {}
+    museumsVisible: [],
+    dataBounds: () => {},
+    mapCenter: '',
+    setCenter: () => {}
 })
 
 export default MuseumContext
