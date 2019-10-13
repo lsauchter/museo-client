@@ -10,7 +10,7 @@ export default function NavBarSearch() {
                 <Link to="/">museo</Link>
             </h1>
             <div className="searchContainer">
-                <SearchForm />
+                <SearchForm activeLink="false"/>
             </div>
         </div>
     )

@@ -1,15 +1,23 @@
-import React from 'react'
-import ReactMapboxGl, { Layer, Feature, MapContext } from 'react-mapbox-gl'
-import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher";
+import React, {useContext} from 'react'
+import MuseumContext from '../MuseumContext'
+import ReactMapboxGl, { Layer, Feature, MapContext, Image } from 'react-mapbox-gl'
+import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher"
 import "mapbox-gl-style-switcher/styles.css";
 import './Map.css'
 
 export default function Map() {
-    console.log(process.env.API_TOKEN)
+    const {museumsVisible, mapCenter} = useContext(MuseumContext)
+
     const MapBox = ReactMapboxGl({
         accessToken:
           process.env.REACT_APP_API_TOKEN
       });
+    
+    const mapMuseums = museumsVisible.map(museum => {
+        console.log(museum)
+        const coords = [museum.LONGITUDE, museum.LATITUDE]
+        return <Feature key={museum.MID} coordinates={coords} />
+    })
 
     return(
         <MapBox
@@ -18,14 +26,22 @@ export default function Map() {
                 height: '50vh',
                 width: '100vw'
             }}
+            center={mapCenter}
+            zoom={[11]}
+            // onDragEnd={}
+            // onZoomEnd={}
         >
             <MapContext.Consumer>
                 {(map) => {
                     map.addControl(new MapboxStyleSwitcherControl());
                 }}
             </MapContext.Consumer>
-            <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-                <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
+            <Layer
+                type="symbol"
+                id="marker"
+                layout={{ 'icon-image': 'symbol'}}
+                minZoom={9}>
+                {mapMuseums}
             </Layer>
         </MapBox>
     )
