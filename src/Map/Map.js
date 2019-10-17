@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react'
 import MuseumContext from '../MuseumContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactMapGL, {NavigationControl, Marker} from 'react-map-gl'
-import "mapbox-gl-style-switcher/styles.css"
 import './Map.css'
 
 export default function Map(props) {
