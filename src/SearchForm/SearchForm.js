@@ -11,10 +11,10 @@ function SearchForm(props) {
     }
 
     const onSelect = (res) => {
-        console.log(res)
         if (props.activeLink === "true") {
             props.history.push('/map')
         }
+        console.log(res)
         dataBounds([[res.bbox[0],res.bbox[1]],[res.bbox[2],res.bbox[3]]])
         setCenter(res.center)
     }
