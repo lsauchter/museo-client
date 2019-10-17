@@ -1,48 +1,63 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import MuseumContext from '../MuseumContext'
-import ReactMapboxGl, { Layer, Feature, MapContext, Image } from 'react-mapbox-gl'
-import { MapboxStyleSwitcherControl } from "mapbox-gl-style-switcher"
-import "mapbox-gl-style-switcher/styles.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ReactMapGL, {NavigationControl, Marker} from 'react-map-gl'
+import "mapbox-gl-style-switcher/styles.css"
 import './Map.css'
 
-export default function Map() {
-    const {museumsVisible, mapCenter} = useContext(MuseumContext)
+export default function Map(props) {
+    const {museumsVisible} = useContext(MuseumContext)
+    const [map, updateMap] = useState(null)
+    const [viewport, updateViewport] = useState({
+        height: '50vh',
+        width: '100vw',
+        zoom: 11,
+        latitude: 40.85001,
+        longitude: -73.87812
+    })
 
-    const MapBox = ReactMapboxGl({
-        accessToken:
-          process.env.REACT_APP_API_TOKEN
-      });
-    
+    const icons = {
+        ART: 'palette',
+        BOT: 'leaf',
+        CMU: 'child',
+        GMU: 'landmark',
+        HSC: 'university',
+        HST: 'university',
+        NAT: 'bone',
+        SCI: 'flask',
+        ZAW: 'hippo'
+    }
+
     const mapMuseums = museumsVisible.map(museum => {
-        console.log(museum)
-        const coords = [museum.LONGITUDE, museum.LATITUDE]
-        return <Feature key={museum.MID} coordinates={coords} />
+        return <Marker
+        key={museum.MID}
+        longitude={museum.LONGITUDE}
+        latitude={museum.LATITUDE}
+        >
+        <FontAwesomeIcon icon={icons[museum.DISCIPL]} className="mapMarker"
+            onClick={() => {
+            props.setMuseumResult(museum)}}/>
+        </Marker>
     })
 
     return(
-        <MapBox
-            style="mapbox://styles/mapbox/streets-v9"
-            containerStyle={{
-                height: '50vh',
-                width: '100vw'
-            }}
-            center={mapCenter}
-            zoom={[11]}
-            // onDragEnd={}
-            // onZoomEnd={}
+        <ReactMapGL
+            {...viewport}
+            mapboxApiAccessToken={process.env.REACT_APP_API_TOKEN}
+            mapStyle="mapbox://styles/mapbox/streets-v10"
+            onViewportChange={(viewport) => {
+                if (map) console.log(map.getMap().getBounds())
+                const {width, height, latitude, longitude, zoom} = viewport
+                return updateViewport({width, height, latitude, longitude, zoom})}
+            
+            }
+            ref={map => updateMap(map)}
         >
-            <MapContext.Consumer>
-                {(map) => {
-                    map.addControl(new MapboxStyleSwitcherControl());
-                }}
-            </MapContext.Consumer>
-            <Layer
-                type="symbol"
-                id="marker"
-                layout={{ 'icon-image': 'symbol'}}
-                minZoom={9}>
-                {mapMuseums}
-            </Layer>
-        </MapBox>
+            <div style={{position: 'absolute', right: 0}}>
+                <NavigationControl />
+            </div>
+
+            {mapMuseums}
+        </ReactMapGL>
     )
 }

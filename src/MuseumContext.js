@@ -5,7 +5,7 @@ const MuseumContext = React.createContext({
     museumsVisible: [],
     dataBounds: () => {},
     mapCenter: '',
-    setCenter: () => {}
+    setCenter: () => {},
 })
 
 export default MuseumContext
