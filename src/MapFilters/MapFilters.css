@@ -1,18 +1,36 @@
 .filters {
     margin: 0;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
+    padding: 40px 0px 20px;
+    background-color: #101935;
+    position: absolute;
+    top: 0;
+    
 }
 
 .filters li {
     list-style: none;
-    padding: 5px;
+    padding: 10px 2% 10px;
+    border-bottom: 1pt solid gainsboro;
+    text-align: left;
 }
 
 .filters button {
     cursor: pointer;
     background-color: #101935;
     color: #F2FDFF;
-    border: 1pt solid #F2FDFF;
+    border: none;
+    text-align: left;
+}
+
+.check {
+    padding-right: 5px;
+    display: inline-block;
+} 
+
+.button--filter {
+    background-color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
 }

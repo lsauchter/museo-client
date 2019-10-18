@@ -1,8 +1,17 @@
 .map {
-    position: relative;
+    position: absolute;
     z-index: -1;
 }
 
 .result {
     padding: 10px;
+    position: absolute;
+    width: 100%;
+}
+
+.filterContainer {
+    position: absolute;
+    top: 0;
+    text-align: left;
+    width: 75%
 }
