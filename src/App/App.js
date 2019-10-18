@@ -6,7 +6,7 @@ import NavBarLanding from '../NavBarLanding/NavBarLanding'
 import NavBarSearch from '../NavBarSearch/NavBarSearch'
 import MuseumContext from '../MuseumContext'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark } from '@fortawesome/free-solid-svg-icons'
+import { faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck } from '@fortawesome/free-solid-svg-icons'
 import STORE from '../store'
 import './App.css'
 
@@ -16,7 +16,7 @@ function App() {
   const [mapCenter, updateMapCenter] = useState([-73.87812, 40.85001])
   const [museumResult, updateMuseumResult] = useState({})
 
-  library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark)
+  library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck)
 
   function dataBounds (response) {
     const newMuseums = museums.filter(museum => {

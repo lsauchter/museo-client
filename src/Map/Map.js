@@ -6,6 +6,7 @@ import './Map.css'
 
 export default function Map(props) {
     const {museumsVisible} = useContext(MuseumContext)
+    const filter = props.filter
     const [map, updateMap] = useState(null)
     const [viewport, updateViewport] = useState({
         height: '50vh',
@@ -27,17 +28,21 @@ export default function Map(props) {
         ZAW: 'hippo'
     }
 
-    const mapMuseums = museumsVisible.map(museum => {
-        return <Marker
-        key={museum.MID}
-        longitude={museum.LONGITUDE}
-        latitude={museum.LATITUDE}
-        >
-        <FontAwesomeIcon icon={icons[museum.DISCIPL]} className="mapMarker"
-            onClick={() => {
-            props.setMuseumResult(museum)}}/>
-        </Marker>
-    })
+    function mapMuseums(abbr) { 
+        const museumsOfType = museumsVisible.filter(museum => museum.DISCIPL === abbr)
+        const museumMarkers =  museumsOfType.map(museum => {
+            return <Marker
+            key={museum.MID}
+            longitude={museum.LONGITUDE}
+            latitude={museum.LATITUDE}
+            >
+            <FontAwesomeIcon icon={icons[museum.DISCIPL]} className="mapMarker"
+                onClick={() => {
+                props.setMuseumResult(museum)}}/>
+            </Marker>
+        })
+        return museumMarkers
+    }
 
     return(
         <ReactMapGL
@@ -45,18 +50,24 @@ export default function Map(props) {
             mapboxApiAccessToken={process.env.REACT_APP_API_TOKEN}
             mapStyle="mapbox://styles/mapbox/streets-v10"
             onViewportChange={(viewport) => {
+                console.log('change')
                 if (map) console.log(map.getMap().getBounds())
                 const {width, height, latitude, longitude, zoom} = viewport
                 return updateViewport({width, height, latitude, longitude, zoom})}
-            
             }
             ref={map => updateMap(map)}
         >
             <div style={{position: 'absolute', right: 0}}>
                 <NavigationControl />
             </div>
-
-            {mapMuseums}
+            {filter.ART && mapMuseums('ART')}
+            {filter.CMU && mapMuseums('CMU')}
+            {filter.GMU && mapMuseums('GMU')}
+            {filter.HSC && mapMuseums('HSC')}
+            {filter.HST && mapMuseums('HST')}
+            {filter.NAT && mapMuseums('NAT')}
+            {filter.SCI && mapMuseums('SCI')}
+            {filter.ZAW && mapMuseums('ZAW')}
         </ReactMapGL>
     )
 }
