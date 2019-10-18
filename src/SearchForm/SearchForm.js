@@ -25,6 +25,8 @@ function SearchForm(props) {
             onSelect={(res) => onSelect(res)}
             country='US'
             inputPlaceholder='City, Address, ZIP'
+            resultClass='geocoder__li'
+            resultsClass='geocoder__ul'
         />
     )
 }
