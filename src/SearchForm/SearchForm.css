@@ -1,0 +1,24 @@
+.geocoder__ul {
+    color: #101935;
+    background-color: white;
+    list-style: none;
+    border-top: 1pt solid #101935;
+    border-right: 1pt solid #101935;
+    border-left: 1pt solid #101935;
+    padding: 0;
+}
+
+.geocoder__li {
+    text-decoration: none;
+    color: #101935;
+    background-color: white;
+    padding: 5px;
+    margin: 0;
+    display: block;
+    border-bottom: 1pt solid #101935;
+    
+}
+
+.geocoder__li:hover, .strong {
+    background-color: gainsboro;
+}
