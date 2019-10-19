@@ -19,16 +19,25 @@ function App() {
   library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck)
 
   function fetchNewMuseums (oldBounds, newBounds) {
-    console.log(oldBounds, newBounds)
-    // const newMuseums = museums.filter(museum => {
-    //   return museum.LONGITUDE >= response[0][0] &&
-    //   museum.LONGITUDE <= response[1][0] &&
-    //   museum.LATITUDE >= response[0][1] &&
-    //   museum.LATITUDE <= response[1][1]
-    // })
-    // updateMuseumsVisible(newMuseums)
+    const coords = {}
+    if (oldBounds._sw.lng > newBounds._sw.lng) {
+      coords.longitude = [oldBounds._sw.lng, newBounds._sw.lng]
+    }
+    else {
+      coords.longitude = [oldBounds._ne.lng, newBounds._ne.lng]
+    }
+    if (oldBounds._sw.lat  > newBounds._sw.lat) {
+      coords.latitude = [oldBounds._sw.lat, newBounds._sw.lat]
+    }
+    else {
+      coords.latitude = [oldBounds._ne.lat, newBounds._ne.lat]
+    }
+    console.log(coords)
+    //fetch data from API that falls between the coordinates in the object above
+    //add data from fetch to museums state and museumsVisible
   }
 
+  //fetches museums according to searchForm result//
   function dataBounds (response) {
     const newMuseums = museums.filter(museum => {
       return museum.LONGITUDE >= response[0][0] &&
@@ -36,6 +45,8 @@ function App() {
       museum.LATITUDE >= response[0][1] &&
       museum.LATITUDE <= response[1][1]
     })
+    //fetch data from API that falls between the coordinates in response
+    //add data to museums state
     updateMuseumsVisible(newMuseums)
   }
 

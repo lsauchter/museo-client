@@ -46,7 +46,6 @@ export default function Map(props) {
     }
 
     useEffect(() => {
-        console.log('mapCenter updated', mapCenter)
         const {width, height, zoom} = viewport
         const newViewport = {
             width,
@@ -92,8 +91,6 @@ export default function Map(props) {
             ref={map => {
                 updateMap(map)
             }}
-            transitionDuration={2000}
-            transitionInterpolator={new FlyToInterpolator()}
         >
             <div style={{position: 'absolute', right: 0}}>
                 <NavigationControl 
