@@ -7,6 +7,8 @@
     padding: 10px;
     position: absolute;
     width: 100%;
+    box-sizing: border-box;
+    bottom: 0;
 }
 
 .filterContainer {
