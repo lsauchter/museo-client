@@ -18,3 +18,8 @@
 .bold {
     font-weight: bold;
 }
+
+.landingPageSearch {
+    display: flex;
+    justify-content: center;
+}

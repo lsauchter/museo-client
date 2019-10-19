@@ -1,3 +1,7 @@
+.searchContainer input{
+    display: inline;
+}
+
 .geocoder__ul {
     color: #101935;
     background-color: white;
