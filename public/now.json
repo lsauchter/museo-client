@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "museo",
+    "name": "museo-client",
     "alias": "museo",
     "routes": [
         {
