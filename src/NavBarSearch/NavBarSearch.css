@@ -1,11 +1,13 @@
 .searchContainer {
     position: absolute;
-    top: 20px;
-    right: 25px;
+    top: 17px;
+    right: 35px;
+    display: flex;
     z-index: 1;
 }
 
 .searchContainer button {
-    color: gainsboro;
-    background-color: #820933;
+    /* color: gainsboro; */
+    background-color: white;
+    height: 24px;
 }

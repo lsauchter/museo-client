@@ -8,7 +8,9 @@ export default function LandingPage() {
         <div className="container hero">
             <h2>Find a museum</h2>
             <p>Discover museums nearby or wherever your travels take you</p>
-            <SearchForm activeLink="true"/>
+            <div className="landingPageSearch">
+                <SearchForm activeLink="true"/>
+            </div>
 		</div>
 		<div className="container top">
             <h3>Museums are everywhere</h3>
