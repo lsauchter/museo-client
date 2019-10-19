@@ -1,9 +1,16 @@
 .hero {
     margin: 8vh 0;
+    position: relative;
+    top: 56px;
 }
 
 .container {
     padding: 3vh 10%;
+}
+
+.information {
+    position: relative;
+    top: 56px;
 }
 
 .top {
@@ -28,9 +35,10 @@
     height: 24px;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 380px) {
     .information {
         position: absolute;
+        top: auto;
         bottom: 0;
     }
 }
