@@ -37,7 +37,7 @@ export default function MapPage() {
                 setMuseumResult={(museum) => setMuseumResult(museum)}
                 filter={filter}/>
             {(Object.keys(museum).length > 0) && <div className="bottom result">
-                <MuseumResult museum={museum}/>
+                <MuseumResult museum={museum} />
                 </div>}
         </div>
         <div className="filterContainer">
@@ -45,8 +45,6 @@ export default function MapPage() {
                 setFilters={(abbr) => setFilters(abbr)}
                 filter={filter}/>
         </div>
-        
-
         </>
     )
 }

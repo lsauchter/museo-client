@@ -18,6 +18,17 @@ function App() {
 
   library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck)
 
+  function fetchNewMuseums (oldBounds, newBounds) {
+    console.log(oldBounds, newBounds)
+    // const newMuseums = museums.filter(museum => {
+    //   return museum.LONGITUDE >= response[0][0] &&
+    //   museum.LONGITUDE <= response[1][0] &&
+    //   museum.LATITUDE >= response[0][1] &&
+    //   museum.LATITUDE <= response[1][1]
+    // })
+    // updateMuseumsVisible(newMuseums)
+  }
+
   function dataBounds (response) {
     const newMuseums = museums.filter(museum => {
       return museum.LONGITUDE >= response[0][0] &&
@@ -68,6 +79,7 @@ function App() {
   const MuseumContextValue = {
     museums,
     museumsVisible,
+    fetchNewMuseums,
     dataBounds,
     mapCenter,
     setCenter,
