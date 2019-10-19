@@ -1,9 +1,9 @@
 .hero {
-    margin: 15vh 0;
+    margin: 8vh 0;
 }
 
 .container {
-    padding: 5%;
+    padding: 3vh 10%;
 }
 
 .top {
@@ -22,4 +22,15 @@
 .landingPageSearch {
     display: flex;
     justify-content: center;
+}
+
+.landingPageSearch button {
+    height: 24px;
+}
+
+@media (min-width: 375px) {
+    .information {
+        position: absolute;
+        bottom: 0;
+    }
 }

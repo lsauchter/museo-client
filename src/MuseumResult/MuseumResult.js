@@ -1,5 +1,6 @@
 import React from 'react'
 import './MuseumResult.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function MuseumResult(props) {
     const {COMMONNAME, PHONE, WEBURL, GSTREET, GCITY, GSTATE, GZIP5} = props.museum
@@ -10,6 +11,9 @@ export default function MuseumResult(props) {
 
     return(
         <>
+        <button onClick={() => props.setMuseumResult({})} className="times">
+            <FontAwesomeIcon icon="times" />
+        </button>
         <h3>{COMMONNAME}</h3>
         {PHONE && <p>phone: {PHONE}</p>}
         {WEBURL && <div className="websiteLink">
