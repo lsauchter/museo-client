@@ -5,49 +5,56 @@ import MapPage from '../MapPage/MapPage'
 import NavBarLanding from '../NavBarLanding/NavBarLanding'
 import NavBarSearch from '../NavBarSearch/NavBarSearch'
 import MuseumContext from '../MuseumContext'
+import config from '../config'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes } from '@fortawesome/free-solid-svg-icons'
-import STORE from '../store'
 import './App.css'
 
 function App() {
-  const [museums, updateMuseums] = useState(STORE.museums)
-  const [museumsVisible, updateMuseumsVisible] = useState([])
+  const [museums, updateMuseums] = useState([])
   const [mapCenter, updateMapCenter] = useState([-73.87812, 40.85001])
   const [museumResult, updateMuseumResult] = useState({})
 
   library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes)
 
-  function fetchNewMuseums (oldBounds, newBounds) {
-    const coords = {}
-    if (oldBounds._sw.lng > newBounds._sw.lng) {
-      coords.longitude = [oldBounds._sw.lng, newBounds._sw.lng]
+  //sets coordinates according to map viewport bounds//
+  function fetchNewMuseums (bounds) {
+    const coords = {
+      longitude: [bounds._sw.lng, bounds._ne.lng],
+      latitude: [bounds._sw.lat, bounds._ne.lat]
     }
-    else {
-      coords.longitude = [oldBounds._ne.lng, newBounds._ne.lng]
-    }
-    if (oldBounds._sw.lat  > newBounds._sw.lat) {
-      coords.latitude = [oldBounds._sw.lat, newBounds._sw.lat]
-    }
-    else {
-      coords.latitude = [oldBounds._ne.lat, newBounds._ne.lat]
-    }
-    console.log(coords)
-    //fetch data from API that falls between the coordinates in the object above
-    //add data from fetch to museums state and museumsVisible
+    fetchMuseums(coords)
   }
 
-  //fetches museums according to searchForm result//
+  //sets coordinates according to searchForm result//
   function dataBounds (response) {
-    const newMuseums = museums.filter(museum => {
-      return museum.LONGITUDE >= response[0][0] &&
-      museum.LONGITUDE <= response[1][0] &&
-      museum.LATITUDE >= response[0][1] &&
-      museum.LATITUDE <= response[1][1]
+    const coords = {
+      latitude: [response[0][1], response[1][1]],
+      longitude: [response[0][0], response[1][0]]
+    }
+    fetchMuseums(coords)
+  }
+
+  function fetchMuseums(coords) {
+    const {latitude, longitude} = coords
+
+    const url = config.API_ENDPOINT + `?latitude=${latitude[0]}&latitude=${latitude[1]}&longitude=${longitude[0]}&longitude=${longitude[1]}`
+
+    fetch(url, {
+      method: 'Get'
     })
-    //fetch data from API that falls between the coordinates in response
-    //add data to museums state
-    updateMuseumsVisible(newMuseums)
+    .then(response => {
+      if (!response.ok) {
+          return response.json().then(error => {throw error})
+      }
+      return response.json()
+    })
+    .then(responseJSON => {
+      updateMuseums([...responseJSON])
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
   }
 
   function setCenter(center) {
@@ -89,7 +96,6 @@ function App() {
 
   const MuseumContextValue = {
     museums,
-    museumsVisible,
     fetchNewMuseums,
     dataBounds,
     mapCenter,

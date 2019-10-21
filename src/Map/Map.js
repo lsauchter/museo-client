@@ -1,18 +1,19 @@
 import React, {useContext, useState, useEffect} from 'react'
 import MuseumContext from '../MuseumContext'
+import config from '../config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactMapGL, {NavigationControl, Marker} from 'react-map-gl'
 import './Map.css'
 
 export default function Map(props) {
-    const {museumsVisible, fetchNewMuseums, mapCenter} = useContext(MuseumContext)
+    const {museums, fetchNewMuseums, mapCenter} = useContext(MuseumContext)
     const filter = props.filter
     const [mapRef, updateMap] = useState()
-    const [bounds, updateBounds] = useState(null)
+ //   const [bounds, updateBounds] = useState(null)
     const [viewport, updateViewport] = useState({
         height: 'calc(100vh - 56px)',
         width: '100vw',
-        zoom: 11,
+        zoom: 12,
         latitude: mapCenter[1],
         longitude: mapCenter[0]
     })
@@ -30,14 +31,14 @@ export default function Map(props) {
     }
 
     function mapMuseums(abbr) { 
-        const museumsOfType = museumsVisible.filter(museum => museum.DISCIPL === abbr)
+        const museumsOfType = museums.filter(museum => museum.discipl === abbr)
         const museumMarkers =  museumsOfType.map(museum => {
             return <Marker
-            key={museum.MID}
-            longitude={museum.LONGITUDE}
-            latitude={museum.LATITUDE}
+            key={museum.mid}
+            longitude={museum.longitude}
+            latitude={museum.latitude}
             >
-            <FontAwesomeIcon icon={icons[museum.DISCIPL]} className="mapMarker"
+            <FontAwesomeIcon icon={icons[museum.discipl]} className="mapMarker"
                 onClick={() => {
                 props.setMuseumResult(museum)}}/>
             </Marker>
@@ -57,30 +58,30 @@ export default function Map(props) {
         updateViewport({...newViewport})
     }, [mapCenter])
 
-    function handleViewportChange(viewport) {
-        const {latitude, longitude, zoom} = viewport
+    function handleViewportChange(newViewport) {
+        const {latitude, longitude, zoom} = newViewport
         updateViewport({width: '100vw', height: 'calc(100vh - 56px)', latitude, longitude, zoom})
     }
 
-    if (!bounds) {
-        if (mapRef) {
-            return updateBounds(mapRef.getMap().getBounds())
-        }
-    }
+    // if (!bounds) {
+    //     if (mapRef) {
+    //         return updateBounds(mapRef.getMap().getBounds())
+    //     }
+    // }
 
     function getNewMuseums() {
         if (mapRef) {
-            const oldBounds = bounds
-            const newBounds = mapRef.getMap().getBounds()
-            fetchNewMuseums(oldBounds, newBounds)
-            updateBounds(newBounds)
+            //const oldBounds = bounds
+            const bounds = mapRef.getMap().getBounds()
+            fetchNewMuseums(bounds)
+            //updateBounds(newBounds)
         }
     }
 
     return(
         <ReactMapGL
             {...viewport}
-            mapboxApiAccessToken={process.env.REACT_APP_API_TOKEN}
+            mapboxApiAccessToken={config.MAPBOX_TOKEN}
             mapStyle="mapbox://styles/mapbox/streets-v10"
             onViewportChange={(viewport) => handleViewportChange(viewport)}
             onInteractionStateChange={(interactionState) => {
@@ -91,12 +92,17 @@ export default function Map(props) {
             ref={map => {
                 updateMap(map)
             }}
+            onClick={(e) => console.log(e.lngLat)}
         >
             <div style={{position: 'absolute', right: 0}}>
                 <NavigationControl 
                     onViewportChange={(viewport) => {
+                        //getNewMuseums()
+                        console.log('zoom')
                         handleViewportChange(viewport)
-                        getNewMuseums()}
+                        console.log(mapRef.getMap().getBounds())
+                        getNewMuseums()
+                    }
                     }/>
             </div>
             {filter.ART && mapMuseums('ART')}
