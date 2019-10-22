@@ -3,80 +3,75 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './MapFilters.css'
 
 export default function MapFilters(props) {
-    const [filterMenu, updateFilterMenu] = useState(false)
 
     function handleClick(abbr) {
         props.setFilters(abbr)
     }
 
-    function handleFilterMenu() {
-        updateFilterMenu(!filterMenu)
-    }
-    
     const { ART, CMU, BOT, GMU, HST, HSC, NAT, SCI, ZAW } = props.filter
 
     return(
         <>
-        <button className="button--filter" onClick={() => handleFilterMenu()}>Filter</button>
-        {filterMenu && <ul className="filters">
-            <li>
-                <button onClick={() => handleClick('ART')}>
+        <button className="button--filter" onClick={() => props.handleFilterMenu()}>Filter</button>
+        {props.filterMenu && <ul className="filters">
+            <li onClick={() => handleClick('ART')}>
+                <button >
                     {ART && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='palette' />
                     Art Museums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('CMU')}>
+            <li onClick={() => handleClick('CMU')}>
+                <button >
                     {CMU && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='child' />
                     Children's Museums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('BOT')}>
+            <li onClick={() => handleClick('BOT')}>
+                <button >
                     {BOT && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='leaf' />
                     Gardens & Nature Centers
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('GMU')}>
+            <li onClick={() => handleClick('GMU')}>
+                <button >
                     {GMU && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='landmark' />
                     General Museums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('HST')}>
+            <li onClick={() => handleClick('HST')}>
+                <button >
                     {HST && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='university' />
                     History Museums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('HSC')}>
+            <li onClick={() => handleClick('HSC')}>
+                <button >
                     {HSC && <FontAwesomeIcon className='check' icon='check'/>}
-                    <FontAwesomeIcon className="museumKey" icon='university' />
+                    <FontAwesomeIcon className="museumKey" icon='monument' />
                     Historical Societies & Preservation
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('NAT')}>
+            <li onClick={() => handleClick('NAT')}>
+                <button >
                     {NAT && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='bone' />
                     Natural History & Natural Science Museums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('SCI')}>
+            <li onClick={() => handleClick('SCI')}>
+                <button >
                     {SCI && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='flask' />
                     Science Museums & Planetariums
                 </button>
             </li>
-            <li>
-                <button onClick={() => handleClick('ZAW')}>
+            <li onClick={() => handleClick('ZAW')}>
+                <button >
                     {ZAW && <FontAwesomeIcon className='check' icon='check'/>}
                     <FontAwesomeIcon className="museumKey" icon='hippo' />
                     Zoos and Aquariums

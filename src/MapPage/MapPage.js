@@ -6,6 +6,7 @@ import './MapPage.css'
 
 export default function MapPage() {
     const [museum, updateMuseum] = useState({})
+    const [filterMenu, updateFilterMenu] = useState(false)
     const [filter, updateFilter] = useState({
         ART: true,
         CMU: true,
@@ -30,11 +31,17 @@ export default function MapPage() {
         updateFilter(update)
     }
 
+    function handleFilterMenu() {
+        updateFilterMenu(!filterMenu)
+    }
+
     return(
         <>
         <div className="map">
             <Map
                 setMuseumResult={(museum) => setMuseumResult(museum)}
+                handleFilterMenu={() => handleFilterMenu()}
+                filterMenu={filterMenu}
                 filter={filter}/>
             {(Object.keys(museum).length > 0) && <div className="bottom result">
                 <MuseumResult
@@ -45,6 +52,8 @@ export default function MapPage() {
         <div className="filterContainer">
             <MapFilters 
                 setFilters={(abbr) => setFilters(abbr)}
+                handleFilterMenu={() => handleFilterMenu()}
+                filterMenu={filterMenu}
                 filter={filter}/>
         </div>
         </>

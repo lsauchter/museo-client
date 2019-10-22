@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import {withRouter} from 'react-router'
 import MuseumContext from '../MuseumContext'
+import config from '../config'
 import  Geocoder from '../Geocoder/Geocoder'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './SearchForm.css'
@@ -8,14 +9,16 @@ import './SearchForm.css'
 function SearchForm(props) {
     const {dataBounds, setCenter} = useContext(MuseumContext)
     const mapAccess = {
-        accessToken: process.env.REACT_APP_API_TOKEN
+        accessToken: config.MAPBOX_TOKEN
     }
 
     const onSelect = (res) => {
         if (props.activeLink === "true") {
             props.history.push('/map')
         }
+        //sends coordinates for App component to fetch museums//
         dataBounds([[res.bbox[0],res.bbox[1]],[res.bbox[2],res.bbox[3]]])
+        //sets the center of the map//
         setCenter(res.center)
     }
 
