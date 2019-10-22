@@ -2,18 +2,17 @@ import React, {useContext, useState, useEffect} from 'react'
 import MuseumContext from '../MuseumContext'
 import config from '../config'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ReactMapGL, {NavigationControl, Marker} from 'react-map-gl'
+import ReactMapGL, {NavigationControl, Marker, FlyToInterpolator} from 'react-map-gl'
 import './Map.css'
 
 export default function Map(props) {
     const {museums, fetchNewMuseums, mapCenter} = useContext(MuseumContext)
     const filter = props.filter
     const [mapRef, updateMap] = useState()
- //   const [bounds, updateBounds] = useState(null)
     const [viewport, updateViewport] = useState({
         height: 'calc(100vh - 56px)',
         width: '100vw',
-        zoom: 12,
+        zoom: 13,
         latitude: mapCenter[1],
         longitude: mapCenter[0]
     })
@@ -23,7 +22,7 @@ export default function Map(props) {
         BOT: 'leaf',
         CMU: 'child',
         GMU: 'landmark',
-        HSC: 'university',
+        HSC: 'monument',
         HST: 'university',
         NAT: 'bone',
         SCI: 'flask',
@@ -39,21 +38,22 @@ export default function Map(props) {
             latitude={museum.latitude}
             >
             <FontAwesomeIcon icon={icons[museum.discipl]} className="mapMarker"
-                onClick={() => {
-                props.setMuseumResult(museum)}}/>
+                onClick={() => {props.setMuseumResult(museum)}}/>
             </Marker>
         })
         return museumMarkers
     }
 
     useEffect(() => {
-        const {width, height, zoom} = viewport
+        const {width, height} = viewport
         const newViewport = {
             width,
             height,
             latitude: mapCenter[1],
             longitude: mapCenter[0],
-            zoom
+            zoom: 13,
+            transitionDuration: 5000,
+            transitionInterpolator: new FlyToInterpolator()
         }
         updateViewport({...newViewport})
     }, [mapCenter])
@@ -63,18 +63,10 @@ export default function Map(props) {
         updateViewport({width: '100vw', height: 'calc(100vh - 56px)', latitude, longitude, zoom})
     }
 
-    // if (!bounds) {
-    //     if (mapRef) {
-    //         return updateBounds(mapRef.getMap().getBounds())
-    //     }
-    // }
-
     function getNewMuseums() {
         if (mapRef) {
-            //const oldBounds = bounds
             const bounds = mapRef.getMap().getBounds()
             fetchNewMuseums(bounds)
-            //updateBounds(newBounds)
         }
     }
 
@@ -85,25 +77,29 @@ export default function Map(props) {
             mapStyle="mapbox://styles/mapbox/streets-v10"
             onViewportChange={(viewport) => handleViewportChange(viewport)}
             onInteractionStateChange={(interactionState) => {
-                if (!interactionState.isDragging  && !interactionState.isZooming && !interactionState.isPanning) {
+                if (!interactionState.isDragging  && !interactionState.isZooming && !interactionState.isPanning && !interactionState.inTransition && !interactionState.isRotating) {
                     getNewMuseums()
                 }
             }}
             ref={map => {
                 updateMap(map)
             }}
-            onClick={(e) => console.log(e.lngLat)}
+            maxZoom={15}
+            onMouseDown={() => {
+                props.setMuseumResult({})
+                if (props.filterMenu) props.handleFilterMenu()
+            }}
+            onTouchStart={() => {
+                props.setMuseumResult({})
+                if (props.filterMenu) props.handleFilterMenu()
+            }}
         >
             <div style={{position: 'absolute', right: 0}}>
                 <NavigationControl 
                     onViewportChange={(viewport) => {
-                        //getNewMuseums()
-                        console.log('zoom')
                         handleViewportChange(viewport)
-                        console.log(mapRef.getMap().getBounds())
-                        getNewMuseums()
-                    }
-                    }/>
+                        getNewMuseums()}}
+                    />
             </div>
             {filter.ART && mapMuseums('ART')}
             {filter.CMU && mapMuseums('CMU')}

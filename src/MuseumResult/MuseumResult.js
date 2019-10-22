@@ -10,15 +10,17 @@ export default function MuseumResult(props) {
         <button onClick={() => props.setMuseumResult({})} className="times">
             <FontAwesomeIcon icon="times" />
         </button>
-        <h3>{commonname}</h3>
-        {phone && <p>phone: {phone}</p>}
-        {weburl && <div className="websiteLink">
-            <p>website: </p><a href={weburl} target="blank">{weburl}</a>
-        </div>}
-        {(gstreet || gcity) && <section name="address">
-            <p>{gstreet}</p>
-            <p>{gcity}, {gstate}, {gzip5}</p>
-        </section>}
+        <address>
+            {commonname}
+            {(phone !== ' ') && <p>phone: {phone}</p>}
+            {(weburl !== ' ') && <div className="websiteLink">
+                <p>website: </p><a href={weburl} target="blank">{weburl}</a>
+            </div>}
+            {(gstreet !== ' ' || gcity !== ' ') && <section name="address">
+                <p>{gstreet}</p>
+                <p>{gcity}, {gstate}, {gzip5}</p>
+            </section>}
+        </address>
         </>
     )
 }

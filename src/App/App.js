@@ -7,7 +7,7 @@ import NavBarSearch from '../NavBarSearch/NavBarSearch'
 import MuseumContext from '../MuseumContext'
 import config from '../config'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes, faMonument } from '@fortawesome/free-solid-svg-icons'
 import './App.css'
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
   const [mapCenter, updateMapCenter] = useState([-73.87812, 40.85001])
   const [museumResult, updateMuseumResult] = useState({})
 
-  library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes)
+  library.add(faPalette, faFlask, faBone, faLeaf, faHippo, faChild, faUniversity, faLandmark, faCheck, faLocationArrow, faTimes, faMonument)
 
   //sets coordinates according to map viewport bounds//
   function fetchNewMuseums (bounds) {

@@ -12,6 +12,7 @@
     padding: 10px 2% 10px;
     border-bottom: 1pt solid gainsboro;
     text-align: left;
+    cursor: pointer;
 }
 
 .filters button {
