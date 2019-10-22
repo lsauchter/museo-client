@@ -84,7 +84,6 @@ export default function Map(props) {
             ref={map => {
                 updateMap(map)
             }}
-            maxZoom={15}
             onMouseDown={() => {
                 props.setMuseumResult({})
                 if (props.filterMenu) props.handleFilterMenu()
