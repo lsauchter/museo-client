@@ -93,7 +93,7 @@ export default function Map(props) {
                 if (props.filterMenu) props.handleFilterMenu()
             }}
         >
-            <div style={{position: 'absolute', right: 0}}>
+            <div style={{position: 'absolute', right: 5, top: 5}}>
                 <NavigationControl 
                     onViewportChange={(viewport) => {
                         handleViewportChange(viewport)
