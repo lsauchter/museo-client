@@ -1,5 +1,6 @@
-.searchContainer input{
-    display: inline;
+.geocoder__input{
+    border: 1pt solid #101935;
+    padding: 5px;
 }
 
 .geocoder__ul {
@@ -20,9 +21,16 @@
     margin: 0;
     display: block;
     border-bottom: 1pt solid #101935;
-    
 }
 
 .geocoder__li:hover, .strong {
     background-color: gainsboro;
+}
+
+.button__search {
+    height: 30.66px;
+    border: 1pt solid #101935;
+    background-color: white;
+    -webkit-appearance: none;
+    padding: 2px 7px;
 }
