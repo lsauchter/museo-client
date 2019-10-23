@@ -44,19 +44,16 @@ function SearchForm(props) {
     }
 
     return(
-        <>
         <Geocoder
             {...mapAccess}
             onSelect={(res) => onSelect(res)}
             country='US'
             inputPlaceholder='Address, City, or ZIP'
+            inputClass='geocoder__input'
             resultClass='geocoder__li'
             resultsClass='geocoder__ul'
+            getUserLocation={() => getUserLocation()}
         />
-        <button onClick={() => getUserLocation()}>
-            <FontAwesomeIcon icon="location-arrow" />
-        </button>
-        </>
     )
 }
 

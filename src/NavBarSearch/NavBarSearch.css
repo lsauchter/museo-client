@@ -5,9 +5,3 @@
     display: flex;
     z-index: 1;
 }
-
-.searchContainer button {
-    /* color: gainsboro; */
-    background-color: white;
-    height: 24px;
-}

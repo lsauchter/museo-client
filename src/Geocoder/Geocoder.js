@@ -1,11 +1,12 @@
 //This is an edited copy of this node module
 //https://github.com/kmwhelan93/react-geocoder-autocomplete
-//The version below includes the country query to limit results to one country
+//The version below includes the country query to limit results to one country and adds a button callback
 
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import FlipMove from "react-flip-move";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import xhr from "xhr";
 
 class Geocoder extends Component {
@@ -218,10 +219,14 @@ class Geocoder extends Component {
       value: this.state.inputValue,
       onChange: this.onInput
     });
+    var searchButton = <button className='button__search' onClick={() => this.props.getUserLocation()}>
+      <FontAwesomeIcon icon="location-arrow" />
+      </button>
     return React.createElement(
       "div",
       null,
       this.props.inputPosition === "top" && input,
+      searchButton,
       React.createElement(
         FlipMove,
         {
