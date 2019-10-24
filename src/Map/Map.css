@@ -3,3 +3,8 @@
     font-size: 16pt;
     cursor: pointer;
 }
+
+.mapboxgl-ctrl-zoom-in:hover, .mapboxgl-ctrl-zoom-out:hover, .mapboxgl-ctrl-compass:hover {
+    background-color: gainsboro !important;
+    transition: all 0.2s ease;
+}

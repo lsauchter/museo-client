@@ -3,6 +3,11 @@
     padding: 5px;
 }
 
+.geocoder__input ~ div {
+    position: absolute !important;
+    width: 231.32px
+}
+
 .geocoder__ul {
     color: #101935;
     background-color: white;
@@ -10,6 +15,7 @@
     border-top: 1pt solid #101935;
     border-right: 1pt solid #101935;
     border-left: 1pt solid #101935;
+    left: 0;
     padding: 0;
 }
 
@@ -33,4 +39,10 @@
     background-color: white;
     -webkit-appearance: none;
     padding: 2px 7px;
+    cursor: pointer;
+}
+
+.button__search:hover {
+    background-color: gainsboro;
+    transition: all 0.2s ease;
 }

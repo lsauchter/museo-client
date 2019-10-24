@@ -3,7 +3,6 @@ import {withRouter} from 'react-router'
 import MuseumContext from '../MuseumContext'
 import config from '../config'
 import  Geocoder from '../Geocoder/Geocoder'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './SearchForm.css'
 
 function SearchForm(props) {
