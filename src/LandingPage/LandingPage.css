@@ -27,10 +27,10 @@
          1px -1px 0 rgb(242, 253, 255, 0.6), 
          -1px 1px 0 rgb(242, 253, 255, 0.6),  
           1px 1px 0 rgb(242, 253, 255, 0.6);
-    padding: 3vh 10% 5vh;
+    padding: 3vh 10% 6vh;
 }
 
-.top {
+.bottom {
     background: linear-gradient(rgb(16, 25, 53, 0.85), rgb(16, 25, 53, 0.85));
     color: #F2FDFF;
     text-shadow:
@@ -39,15 +39,6 @@
          -1px 1px 0 rgb(16, 25, 53, 0.9),  
           1px 1px 0 rgb(16, 25, 53, 0.9);
     margin-bottom: 2vh;
-}
-
-.bottom {
-    background: linear-gradient(rgb(154, 212, 214, 0.85), rgb(154, 212, 214, 0.85));
-    text-shadow:
-        -1px -1px 0 rgb(154, 212, 214, 0.8), 
-         1px -1px 0 rgb(154, 212, 214, 0.8), 
-         -1px 1px 0 rgb(154, 212, 214, 0.8),  
-          1px 1px 0 rgb(154, 212, 214, 0.8);
 }
 
 .bold {
@@ -60,10 +51,10 @@
     margin: 0;
 }
 
+.landingIcon {
+    margin: 3vh 0;
+}
+
 @media (min-width: 380px) {
-    .information {
-        position: absolute;
-        top: auto;
-        bottom: 0;
-    }
+    
 }
