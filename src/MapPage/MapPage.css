@@ -22,6 +22,6 @@
 @supports (-webkit-overflow-scrolling: touch) {
     /* CSS specific to iOS devices */ 
     .map {
-      height: calc(100% - 20px);
+      height: calc(100% - 44px);
     }
   }
