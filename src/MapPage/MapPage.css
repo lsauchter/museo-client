@@ -24,4 +24,8 @@
     .map {
       height: calc(100% - 44px);
     }
+
+    .result {
+        bottom: 44px;
+    }
   }
