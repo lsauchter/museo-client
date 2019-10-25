@@ -3,11 +3,13 @@
 }
 
 .result {
-    padding: 10px;
+    padding: 20px 10%;
     position: absolute;
     width: 100%;
     box-sizing: border-box;
     bottom: 0;
+    background-color: #101935;
+    color: #F2FDFF;
 }
 
 .filterContainer {

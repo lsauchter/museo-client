@@ -43,7 +43,7 @@ export default function MapPage() {
                 handleFilterMenu={() => handleFilterMenu()}
                 filterMenu={filterMenu}
                 filter={filter}/>
-            {(Object.keys(museum).length > 0) && <div className="bottom result">
+            {(Object.keys(museum).length > 0) && <div className="result">
                 <MuseumResult
                     museum={museum}
                     setMuseumResult={(museum) => setMuseumResult(museum)}/>

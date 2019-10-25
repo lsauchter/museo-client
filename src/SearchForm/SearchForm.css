@@ -1,6 +1,7 @@
-.geocoder__input{
+.geocoder__input {
     border: 1pt solid #101935;
     padding: 5px;
+    width: 160px;
 }
 
 .geocoder__input ~ div {
@@ -45,4 +46,10 @@
 .button__search:hover {
     background-color: gainsboro;
     transition: all 0.2s ease;
+}
+
+@media (min-width: 400px)  {
+    .geocoder__input {
+        width: auto;
+    }
 }

@@ -1,8 +1,6 @@
 .landingPage {
     min-height: 100%;
     background: 
-        /* url(https://images.unsplash.com/photo-1491156855053-9cdff72c7f85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2200&q=80) */
-        /* url(https://images.unsplash.com/photo-1539233406165-4a1007febe4b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80) */
         url(https://images.unsplash.com/photo-1542681594-c9c9316805d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)
         center no-repeat;
     background-size: cover;
@@ -14,7 +12,7 @@
 }
 
 .hero {
-    padding: 9% 0;
+    padding: 15% 0;
     margin: 0;
 }
 
@@ -39,6 +37,11 @@
          -1px 1px 0 rgb(16, 25, 53, 0.9),  
           1px 1px 0 rgb(16, 25, 53, 0.9);
     margin-bottom: 2vh;
+}
+
+.bottom__text {
+    max-width: 600px;
+    margin: auto;
 }
 
 .bold {

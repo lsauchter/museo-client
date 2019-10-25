@@ -1,9 +1,11 @@
 .filters {
     margin: 0;
-    padding: 40px 0px 20px;
+    padding: 40px 0px 0px;
     background-color: #101935;
     position: absolute;
     top: 0px;   
+    height: 400px;
+    overflow: scroll;
 }
 
 .filters:active {
@@ -50,4 +52,12 @@
 
 .museumKey {
     padding: 0 5px;
+}
+
+@media (min-height: 600px) {
+    .filters {
+        height: auto;
+        overflow: visible;
+    }
+
 }

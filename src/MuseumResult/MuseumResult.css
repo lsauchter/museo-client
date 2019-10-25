@@ -2,9 +2,15 @@
     display: inline
 }
 
+.websiteLink a{
+    color: #F2FDFF;
+    word-wrap: break-word;
+}
+
 .times {
     position: absolute;
     background-color: transparent;
+    color: #F2FDFF;
     top: 5px;
     right: 5px;
     border: none;
