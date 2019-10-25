@@ -220,7 +220,7 @@ class Geocoder extends Component {
       onChange: this.onInput,
       id: 'geocoder'
     });
-    var label = <label for='geocoder' className='geocoder__label'>Search</label>
+    var label = <label htmlFor='geocoder' className='geocoder__label'>Search</label>
     var searchButton = <button name="search" aria-label="get user location" className='button__search' onClick={() => this.props.getUserLocation()}>
       <FontAwesomeIcon icon="location-arrow" />
       </button>
