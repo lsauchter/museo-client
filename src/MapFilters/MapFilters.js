@@ -12,7 +12,7 @@ export default function MapFilters(props) {
 
     return(
         <>
-        <button className="button--filter" onClick={() => props.handleFilterMenu()}>Filter</button>
+        <button className="button--filter" onClick={() => props.handleFilterMenu()} autoFocus>Filter</button>
         {props.filterMenu && <ul className="filters">
             <li onClick={() => handleClick('ART')}>
                 <button >
