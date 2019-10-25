@@ -29,6 +29,7 @@ function App() {
   const [museums, updateMuseums] = useState([]);
   const [mapCenter, updateMapCenter] = useState([-73.87812, 40.85001]);
   const [museumResult, updateMuseumResult] = useState({});
+  const [error, updateError] = useState(null);
 
   library.add(
     faPalette,
@@ -67,6 +68,7 @@ function App() {
 
   function fetchMuseums(coords) {
     const { latitude, longitude } = coords;
+    updateError(null);
 
     const url =
       config.API_ENDPOINT +
@@ -89,7 +91,7 @@ function App() {
         updateMuseums([...responseJSON]);
       })
       .catch(error => {
-        console.log(error.message);
+        setError(error.message);
       });
   }
 
@@ -120,6 +122,15 @@ function App() {
     );
   }
 
+  let timer;
+  function setError(message) {
+    clearTimeout(timer);
+    updateError({ message });
+    timer = setTimeout(() => {
+      updateError(null);
+    }, 10000);
+  }
+
   const MuseumContextValue = {
     museums,
     fetchNewMuseums,
@@ -127,14 +138,22 @@ function App() {
     mapCenter,
     setCenter,
     museumResult,
-    setMuseumResult
+    setMuseumResult,
+    setError
   };
 
   return (
     <MuseumContext.Provider value={MuseumContextValue}>
       <div className="App">
         <header role="banner">{renderNavRoutes()}</header>
-        <main role="main">{renderMainRoutes()}</main>
+        <main role="main">
+          {error && (
+            <p className="error" role="alert">
+              {error.message}
+            </p>
+          )}
+          {renderMainRoutes()}
+        </main>
       </div>
     </MuseumContext.Provider>
   );

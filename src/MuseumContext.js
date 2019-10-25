@@ -6,7 +6,8 @@ const MuseumContext = React.createContext({
   fetchNewMuseums: () => {},
   dataBounds: () => {},
   mapCenter: "",
-  setCenter: () => {}
+  setCenter: () => {},
+  setError: () => {}
 });
 
 export default MuseumContext;
