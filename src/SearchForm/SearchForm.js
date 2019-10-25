@@ -6,7 +6,7 @@ import Geocoder from "../Geocoder/Geocoder";
 import "./SearchForm.css";
 
 function SearchForm(props) {
-  const { dataBounds, setCenter } = useContext(MuseumContext);
+  const { dataBounds, setCenter, setError } = useContext(MuseumContext);
   const mapAccess = {
     accessToken: config.MAPBOX_TOKEN
   };
@@ -39,11 +39,15 @@ function SearchForm(props) {
           setCenter([position.coords.longitude, position.coords.latitude]);
         },
         function error() {
-          console.log("location denied");
+          setError(
+            "Location denied. Search for a location or move the map to find museums."
+          );
         }
       );
     } else {
-      console.log("geolocation is not enabled on this browser");
+      setError(
+        "Geolocation is not enabled on this browser. Search for a location or move the map to find museums."
+      );
     }
   }
 
