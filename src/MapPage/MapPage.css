@@ -18,3 +18,10 @@
     text-align: left;
     width: 75%
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+    /* CSS specific to iOS devices */ 
+    .map {
+      height: calc(100% - 20px);
+    }
+  }
