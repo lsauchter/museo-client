@@ -8,3 +8,10 @@ main {
   position: relative;
   top: 56px;
 }
+
+@supports (-webkit-overflow-scrolling: touch) {
+  /* CSS specific to iOS devices */ 
+  main {
+    height: calc(100vh - 76px);
+  }
+}
