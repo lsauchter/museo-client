@@ -16,7 +16,10 @@ function SearchForm(props) {
             props.history.push('/map')
         }
         //sends coordinates for App component to fetch museums//
-        dataBounds([[res.bbox[0],res.bbox[1]],[res.bbox[2],res.bbox[3]]])
+        if(res.bbox) {
+            dataBounds([[res.bbox[0],res.bbox[1]],[res.bbox[2],res.bbox[3]]])
+        }
+        dataBounds([[(res.center[0] - 0.1), (res.center[1] - 0.1)], [(res.center[0] + 0.1), (res.center[1] + 0.1)]])
         //sets the center of the map//
         setCenter(res.center)
     }
