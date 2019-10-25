@@ -217,14 +217,17 @@ class Geocoder extends Component {
       type: "text",
       // defaultValue: this.state.inputValue
       value: this.state.inputValue,
-      onChange: this.onInput
+      onChange: this.onInput,
+      id: 'geocoder'
     });
-    var searchButton = <button className='button__search' onClick={() => this.props.getUserLocation()}>
+    var label = <label for='geocoder' className='geocoder__label'>Search</label>
+    var searchButton = <button name="search" aria-label="get user location" className='button__search' onClick={() => this.props.getUserLocation()}>
       <FontAwesomeIcon icon="location-arrow" />
       </button>
     return React.createElement(
       "div",
       null,
+      label,
       this.props.inputPosition === "top" && input,
       searchButton,
       React.createElement(

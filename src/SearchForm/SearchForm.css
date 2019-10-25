@@ -1,3 +1,13 @@
+/* label is only necessary for screen readers */
+.geocoder__label {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
 .geocoder__input {
     border: 1pt solid #101935;
     padding: 5px;
