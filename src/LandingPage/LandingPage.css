@@ -1,71 +1,65 @@
 .landingPage {
-    min-height: 100%;
-    background: 
-        url('../heroImage.jpeg')
-        center no-repeat;
-    background-size: cover;
-    font-weight: 500;
+  min-height: 100%;
+  background: url("../heroImage.jpeg") center no-repeat;
+  background-size: cover;
+  font-weight: 500;
 }
 
 .container {
-    padding: 3vh 10%;
+  padding: 3vh 10%;
 }
 
 .hero {
-    padding: 20% 0;
-    margin: 0;
+  padding: 20% 0;
+  margin: 0;
 }
 
 .hero__text {
-    background: linear-gradient(
-        rgb(242, 253, 255, 0.85), rgb(242, 253, 255, 0.85)
-        );
-    text-shadow:
-        -1px -1px 0 rgb(242, 253, 255, 0.6), 
-         1px -1px 0 rgb(242, 253, 255, 0.6), 
-         -1px 1px 0 rgb(242, 253, 255, 0.6),  
-          1px 1px 0 rgb(242, 253, 255, 0.6);
-    padding: 3vh 10% 6vh;
+  background: linear-gradient(
+    rgb(242, 253, 255, 0.85),
+    rgb(242, 253, 255, 0.85)
+  );
+  text-shadow: -1px -1px 0 rgb(242, 253, 255, 0.6),
+    1px -1px 0 rgb(242, 253, 255, 0.6), -1px 1px 0 rgb(242, 253, 255, 0.6),
+    1px 1px 0 rgb(242, 253, 255, 0.6);
+  padding: 3vh 10% 6vh;
 }
 
 .bottom {
-    background: linear-gradient(rgb(16, 25, 53, 0.85), rgb(16, 25, 53, 0.85));
-    color: #F2FDFF;
-    text-shadow:
-        -1px -1px 0 rgb(16, 25, 53, 0.9), 
-         1px -1px 0 rgb(16, 25, 53, 0.9), 
-         -1px 1px 0 rgb(16, 25, 53, 0.9),  
-          1px 1px 0 rgb(16, 25, 53, 0.9);
-    margin-bottom: 2vh;
+  background: linear-gradient(rgb(16, 25, 53, 0.85), rgb(16, 25, 53, 0.85));
+  color: #f2fdff;
+  text-shadow: -1px -1px 0 rgb(16, 25, 53, 0.9), 1px -1px 0 rgb(16, 25, 53, 0.9),
+    -1px 1px 0 rgb(16, 25, 53, 0.9), 1px 1px 0 rgb(16, 25, 53, 0.9);
+  margin-bottom: 2vh;
 }
 
 .bottom__text {
-    max-width: 600px;
-    margin: auto;
+  max-width: 600px;
+  margin: auto;
 }
 
 .bold {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .landingPageSearch {
-    display: flex;
-    justify-content: center;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .landingIcon {
-    margin: 3vh 0;
+  margin: 3vh 0;
 }
 
 @media (min-width: 750px) {
-    .hero {
-        padding: 15% 0;
-    }
+  .hero {
+    padding: 15% 0;
+  }
 }
 
 @media (min-width: 830px) {
-    .hero {
-        padding: 125px 0;
-    }
+  .hero {
+    padding: 125px 0;
+  }
 }

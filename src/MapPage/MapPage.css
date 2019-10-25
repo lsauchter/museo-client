@@ -1,31 +1,31 @@
 .map {
-    z-index: -1;
+  z-index: -1;
 }
 
 .result {
-    padding: 20px 10%;
-    position: absolute;
-    width: 100%;
-    box-sizing: border-box;
-    bottom: 0;
-    background-color: #101935;
-    color: #F2FDFF;
+  padding: 20px 10%;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  bottom: 0;
+  background-color: #101935;
+  color: #f2fdff;
 }
 
 .filterContainer {
-    position: absolute;
-    top: 0;
-    text-align: left;
-    width: 75%
+  position: absolute;
+  top: 0;
+  text-align: left;
+  width: 75%;
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-    /* CSS specific to iOS devices */ 
-    .map {
-      height: calc(100% - 44px);
-    }
-
-    .result {
-        padding: 20px 10% 64px;
-    }
+  /* CSS specific to iOS devices */
+  .map {
+    height: calc(100% - 44px);
   }
+
+  .result {
+    padding: 20px 10% 64px;
+  }
+}

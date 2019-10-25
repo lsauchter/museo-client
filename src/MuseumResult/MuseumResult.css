@@ -1,21 +1,21 @@
-.websiteLink p{
-    display: inline
+.websiteLink p {
+  display: inline;
 }
 
-.websiteLink a{
-    color: #F2FDFF;
-    word-wrap: break-word;
+.websiteLink a {
+  color: #f2fdff;
+  word-wrap: break-word;
 }
 
 .times {
-    position: absolute;
-    background-color: transparent;
-    color: #F2FDFF;
-    top: 10px;
-    right: 5px;
-    border: none;
+  position: absolute;
+  background-color: transparent;
+  color: #f2fdff;
+  top: 10px;
+  right: 5px;
+  border: none;
 }
 
 address {
-    margin: 1em 0;
+  margin: 1em 0;
 }

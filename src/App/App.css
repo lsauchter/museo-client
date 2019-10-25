@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
@@ -10,7 +10,7 @@ main {
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-  /* CSS specific to iOS devices */ 
+  /* CSS specific to iOS devices */
   main {
     height: calc(100vh - 100px);
   }

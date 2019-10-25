@@ -1,13 +1,13 @@
 .searchContainer {
-    position: absolute;
-    top: 13px;
-    right: 25px;
-    display: flex;
-    z-index: 1;
+  position: absolute;
+  top: 13px;
+  right: 25px;
+  display: flex;
+  z-index: 1;
 }
 
 @media (min-width: 400px) {
-    .searchContainer {
-        right: 35px;
-    }
+  .searchContainer {
+    right: 35px;
+  }
 }
