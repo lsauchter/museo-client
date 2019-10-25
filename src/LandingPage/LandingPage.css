@@ -1,7 +1,7 @@
 .landingPage {
     min-height: 100%;
     background: 
-        url(https://images.unsplash.com/photo-1542681594-c9c9316805d6?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)
+        url('../heroImage.jpeg')
         center no-repeat;
     background-size: cover;
     font-weight: 500;
@@ -12,7 +12,7 @@
 }
 
 .hero {
-    padding: 15% 0;
+    padding: 20% 0;
     margin: 0;
 }
 
@@ -58,6 +58,14 @@
     margin: 3vh 0;
 }
 
-@media (min-width: 380px) {
-    
+@media (min-width: 750px) {
+    .hero {
+        padding: 15% 0;
+    }
+}
+
+@media (min-width: 830px) {
+    .hero {
+        padding: 125px 0;
+    }
 }
