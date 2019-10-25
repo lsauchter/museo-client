@@ -12,6 +12,6 @@ main {
 @supports (-webkit-overflow-scrolling: touch) {
   /* CSS specific to iOS devices */ 
   main {
-    height: calc(100vh - 76px);
+    height: calc(100vh - 100px);
   }
 }
