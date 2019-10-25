@@ -7,17 +7,17 @@ export default function MuseumResult(props) {
 
     return(
         <>
-        <button onClick={() => props.setMuseumResult({})} className="times">
+        <button name="close" aria-label="close museum result" onClick={() => props.setMuseumResult({})} className="times">
             <FontAwesomeIcon icon="times" />
         </button>
         <h3>{commonname}</h3>
-        {(phone !== ' ') &&  <p>{phone}</p>}
+        {(phone !== ' ') &&  <p aria-label="phone">{phone}</p>}
         {(weburl !== ' ') && <div className="websiteLink">
             <a href={weburl} target="blank" rel="noreferrer">{weburl}</a>
         </div>}
         {(gstreet !== ' ' || gcity !== ' ') && <address>
-            <p>{gstreet}</p>
-            <p>{gcity}, {gstate}, {gzip5}</p>
+            {gstreet}<br />
+            {gcity}, {gstate}, {gzip5}
         </address>}
         </>
     )
