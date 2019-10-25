@@ -1,63 +1,62 @@
 .filters {
-    margin: 0;
-    padding: 40px 0px 0px;
-    background-color: #101935;
-    position: absolute;
-    top: 0px;   
-    height: 400px;
-    overflow: scroll;
+  margin: 0;
+  padding: 40px 0px 0px;
+  background-color: #101935;
+  position: absolute;
+  top: 0px;
+  height: 400px;
+  overflow: scroll;
 }
 
 .filters:active {
-    transition: all 2s ease;
+  transition: all 2s ease;
 }
 
 .filters li {
-    list-style: none;
-    padding: 10px 2% 10px;
-    border-bottom: 1pt solid gainsboro;
-    text-align: left;
-    cursor: pointer;
+  list-style: none;
+  padding: 10px 2% 10px;
+  border-bottom: 1pt solid gainsboro;
+  text-align: left;
+  cursor: pointer;
 }
 
 .filters button {
-    cursor: pointer;
-    background-color: #101935;
-    color: #F2FDFF;
-    border: none;
-    text-align: left;
+  cursor: pointer;
+  background-color: #101935;
+  color: #f2fdff;
+  border: none;
+  text-align: left;
 }
 
 .check {
-    padding-right: 5px;
-    display: inline-block;
-} 
+  padding-right: 5px;
+  display: inline-block;
+}
 
 .button--filter {
-    background-color: white;
-    border-radius: 4px;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-    padding: 5px 10px;
-    top: 5px;
-    left: 5px;
+  background-color: white;
+  border-radius: 4px;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  padding: 5px 10px;
+  top: 5px;
+  left: 5px;
 }
 
 .button--filter:hover {
-    background-color: gainsboro;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+  background-color: gainsboro;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .museumKey {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 
 @media (min-height: 600px) {
-    .filters {
-        height: auto;
-        overflow: visible;
-    }
-
+  .filters {
+    height: auto;
+    overflow: visible;
+  }
 }

@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import FlipMove from "react-flip-move";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import xhr from "xhr";
 
 class Geocoder extends Component {
@@ -218,12 +218,23 @@ class Geocoder extends Component {
       // defaultValue: this.state.inputValue
       value: this.state.inputValue,
       onChange: this.onInput,
-      id: 'geocoder'
+      id: "geocoder"
     });
-    var label = <label htmlFor='geocoder' className='geocoder__label'>Search</label>
-    var searchButton = <button name="search" aria-label="get user location" className='button__search' onClick={() => this.props.getUserLocation()}>
-      <FontAwesomeIcon icon="location-arrow" />
+    var label = (
+      <label htmlFor="geocoder" className="geocoder__label">
+        Search
+      </label>
+    );
+    var searchButton = (
+      <button
+        name="search"
+        aria-label="get user location"
+        className="button__search"
+        onClick={() => this.props.getUserLocation()}
+      >
+        <FontAwesomeIcon icon="location-arrow" />
       </button>
+    );
     return React.createElement(
       "div",
       null,

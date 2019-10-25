@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const MuseumContext = React.createContext({
-    museums: [],
-    museumsVisible: [],
-    fetchNewMuseums: () => {},
-    dataBounds: () => {},
-    mapCenter: '',
-    setCenter: () => {},
-})
+  museums: [],
+  museumsVisible: [],
+  fetchNewMuseums: () => {},
+  dataBounds: () => {},
+  mapCenter: "",
+  setCenter: () => {}
+});
 
-export default MuseumContext
+export default MuseumContext;

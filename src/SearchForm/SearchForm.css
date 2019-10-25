@@ -1,67 +1,68 @@
 /* label is only necessary for screen readers */
 .geocoder__label {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .geocoder__input {
-    border: 1pt solid #101935;
-    padding: 5px;
-    width: 160px;
-    border-radius: 0;
-    -webkit-appearance: none;
+  border: 1pt solid #101935;
+  padding: 5px;
+  width: 160px;
+  border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .geocoder__input ~ div {
-    position: absolute !important;
-    width: 231.32px
+  position: absolute !important;
+  width: 231.32px;
 }
 
 .geocoder__ul {
-    color: #101935;
-    background-color: white;
-    list-style: none;
-    border-top: 1pt solid #101935;
-    border-right: 1pt solid #101935;
-    border-left: 1pt solid #101935;
-    left: 0;
-    padding: 0;
+  color: #101935;
+  background-color: white;
+  list-style: none;
+  border-top: 1pt solid #101935;
+  border-right: 1pt solid #101935;
+  border-left: 1pt solid #101935;
+  left: 0;
+  padding: 0;
 }
 
 .geocoder__li {
-    text-decoration: none;
-    color: #101935;
-    background-color: white;
-    padding: 5px;
-    margin: 0;
-    display: block;
-    border-bottom: 1pt solid #101935;
+  text-decoration: none;
+  color: #101935;
+  background-color: white;
+  padding: 5px;
+  margin: 0;
+  display: block;
+  border-bottom: 1pt solid #101935;
 }
 
-.geocoder__li:hover, .strong {
-    background-color: gainsboro;
+.geocoder__li:hover,
+.strong {
+  background-color: gainsboro;
 }
 
 .button__search {
-    height: 30.66px;
-    border: 1pt solid #101935;
-    background-color: white;
-    -webkit-appearance: none;
-    padding: 2px 7px;
-    cursor: pointer;
+  height: 30.66px;
+  border: 1pt solid #101935;
+  background-color: white;
+  -webkit-appearance: none;
+  padding: 2px 7px;
+  cursor: pointer;
 }
 
 .button__search:hover {
-    background-color: gainsboro;
-    transition: all 0.2s ease;
+  background-color: gainsboro;
+  transition: all 0.2s ease;
 }
 
-@media (min-width: 400px)  {
-    .geocoder__input {
-        width: auto;
-    }
+@media (min-width: 400px) {
+  .geocoder__input {
+    width: auto;
+  }
 }
