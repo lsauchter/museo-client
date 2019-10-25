@@ -12,6 +12,8 @@
     border: 1pt solid #101935;
     padding: 5px;
     width: 160px;
+    border-radius: 0;
+    -webkit-appearance: none;
 }
 
 .geocoder__input ~ div {
