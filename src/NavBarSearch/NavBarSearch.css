@@ -1,7 +1,13 @@
 .searchContainer {
     position: absolute;
-    top: 17px;
-    right: 35px;
+    top: 13px;
+    right: 25px;
     display: flex;
     z-index: 1;
+}
+
+@media (min-width: 400px) {
+    .searchContainer {
+        right: 35px;
+    }
 }
