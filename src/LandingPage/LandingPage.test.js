@@ -2,10 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import {
+  faLocationArrow,
+  faUniversity
+} from "@fortawesome/free-solid-svg-icons";
 import LandingPage from "./LandingPage";
 
-library.add(faLocationArrow);
+library.add(faLocationArrow, faUniversity);
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
