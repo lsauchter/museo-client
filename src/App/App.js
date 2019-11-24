@@ -24,6 +24,9 @@ import {
   faCogs
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
+//polyfills
+import Promise from "promise-polyfill";
+import "whatwg-fetch";
 
 function App() {
   const [museums, updateMuseums] = useState([]);
@@ -77,7 +80,8 @@ function App() {
       }&longitude=${longitude[1]}`;
 
     fetch(url, {
-      method: "Get"
+      method: "Get",
+      credentials: "same-origin"
     })
       .then(response => {
         if (!response.ok) {
