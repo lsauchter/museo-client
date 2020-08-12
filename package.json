@@ -11,7 +11,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-flip-move": "^3.0.4",
-    "react-map-gl": "^5.2.7",
+    "react-map-gl": "^5.1.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "vercel": "^19.2.0",

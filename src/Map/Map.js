@@ -91,7 +91,7 @@ export default function Map(props) {
     <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={config.MAPBOX_TOKEN}
-      mapStyle="mapbox://styles/mapbox/streets-v10"
+      mapStyle="mapbox://styles/mapbox/streets-v11"
       onViewportChange={viewport => handleViewportChange(viewport)}
       onInteractionStateChange={interactionState => {
         if (
