@@ -36,6 +36,13 @@ export default function LandingPage() {
             exactly what you're looking for.
           </p>
         </div>
+        <div className="copyright">
+          <FontAwesomeIcon
+            icon="copyright"
+            size="1x"
+          />
+          <p>2019 Lauren Auchter</p>
+        </div>
       </div>
     </div>
   );

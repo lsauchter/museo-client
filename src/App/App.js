@@ -21,7 +21,8 @@ import {
   faTimes,
   faMonument,
   faGlobeAmericas,
-  faCogs
+  faCogs,
+  faCopyright,
 } from "@fortawesome/free-solid-svg-icons";
 import "./App.css";
 //polyfills
@@ -48,7 +49,8 @@ function App() {
     faTimes,
     faMonument,
     faGlobeAmericas,
-    faCogs
+    faCogs,
+    faCopyright,
   );
 
   //sets coordinates according to map viewport bounds//
