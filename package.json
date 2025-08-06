@@ -13,7 +13,7 @@
     "react-flip-move": "^3.0.4",
     "react-map-gl": "^5.1.5",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3",
+    "react-scripts": "^5.0.1",
     "vercel": "^19.2.0",
     "whatwg-fetch": "^3.4.0",
     "xhr": "^2.5.0"
